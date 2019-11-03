@@ -7,6 +7,10 @@ urlpatterns = [
     path('base/',views.base),
     path('inherint/',views.inherint),
     path('inherint1/',views.inherint1),
+    path('pinpai/',views.pinpai),
+    path('shop/',views.shop),
+    path('about_us/',views.about_us),
+    path('news/',views.news),
 
 ]
 
