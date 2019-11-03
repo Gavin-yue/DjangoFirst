@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>hello,world</p>
+    <div>
+        数字:{{ num1 }}<br>
+        字符:{{ str1 }}<br>
+        列表:{{ list1 }}<br>
+        集合:{{ set1 }}<br>
+        字典:{{ dict1.name }}<br>
+        元组:{{ tup1 }}<br>
+        <hr>
+
+        <ul>
+            {% for i in list1 %}
+                <li>{{ i }}</li>
+            {% endfor %}
+        </ul>
+
+        <hr>
+        <ol>
+            {% for j in tup1 %}
+                {% if j == 0 %}
+                <li>{{ j }} 是偶数</li>
+                {% else %}
+                <li>{{ j }} 是奇数</li>
+                {% endif %}
+
+            {% endfor %}
+
+        </ol>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+
+
+{%  block blk2 %}
+
+    <h1>这是第二个继承了</h1>
+{% endblock %}
+
+{% block blk1 %}
+        {% include 'base/test1.html'%}
+{% endblock %}
