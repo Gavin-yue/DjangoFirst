@@ -11,21 +11,19 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'css/common.css'%}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}"/>
 	    <script src="{% static ''%}js/jquery-1.11.0.js" type="text/javascript"></script>
-          {% block script %}
 
-          {% endblock %}
     </head>
 	<body>
         {% block top1 %}
             <div class="clearfix nav">
 			<a class="logo" href="javascript:;"></a>
 			<ul class="clearfix nav-wrap">
-				<li><a class="nav-item nav-active" href="/project1/index">首页</a></li>
-				<li><a class="nav-item" href="/project1/pinpai">品牌故事</a></li>
-				<li><a class="nav-item" href="/project1/meishi">美食系列</a></li>
-				<li><a class="nav-item" href="/project1/shop">店面展示</a></li>
-				<li><a class="nav-item" href="/project1/news">新闻资讯</a></li>
-				<li><a class="nav-item" href="/project1/about_us">关于我们</a></li>
+				<li><a class="nav-item {{ index }}" href="/project1/index">首页</a></li>
+				<li><a class="nav-item {{ pinpai }}" href="/project1/pinpai">品牌故事</a></li>
+				<li><a class="nav-item {{ meishi1 }}" href="/project1/meishi">美食系列</a></li>
+				<li><a class="nav-item {{ shop }}" href="/project1/shop">店面展示</a></li>
+				<li><a class="nav-item {{ news }}" href="/project1/news">新闻资讯</a></li>
+				<li><a class="nav-item {{ about_us }}" href="/project1/about_us">关于我们</a></li>
 			</ul>
 		</div>
         {% endblock %}
@@ -82,3 +80,6 @@
 
 
 </html>
+ {% block script %}
+
+ {% endblock %}
