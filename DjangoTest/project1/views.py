@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from .models import Type
 from .models import Goods
+from .models import News
 from django.http import Http404
+from django.core.paginator import Paginator,PageNotAnInteger
+from DjangoTest.settings import page_size
 
 # Create your views here.
 def index(request):
@@ -58,7 +61,27 @@ def about_us(request):
     return render(request,'new_html/about-us.html',{"about_us":about_us})
 def news(request):
     news = "nav-active"
-    return render(request,'new_html/news.html',{'news':news})
+    news_list = News.objects.all()
+    p=Paginator(news_list,page_size)
+    number = p.num_pages
+    page_range = p.page_range
+    page = request.GET.get('page')
+    print(page,type(page))
+    try :
+        page = int(page)
+    except:
+        page = 1
+    if page > number or page <1:
+        page = number
+
+    data = p.page(page)
+    if page <4:
+        page_range=page_range[:4]
+    elif page+4>number+1:
+        page_range = page_range[-4:]
+    else:
+        page_range = page_range[page-2:page+2]
+    return render(request,'new_html/news.html',{'news':news,'news_list':data,'number':number,'page_range':page_range})
 
 def meishi_detail(request,id):
     goods = Goods.objects.filter(id=id)
@@ -67,3 +90,12 @@ def meishi_detail(request,id):
     else:
         raise Http404
     return render(request,'new_html/meishi-con.html',{'good':good})
+
+def news_detail(request,id):
+    news = "nav-active"
+    new = News.objects.filter(id=id)
+    if new.exists():
+        new = new[0]
+    else:
+        return Http404
+    return render(request,'new_html/news-con.html' , {"news":news,"new":new})

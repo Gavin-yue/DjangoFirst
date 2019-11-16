@@ -13,6 +13,7 @@ urlpatterns = [
     path('news/',views.news,name = "news"),
     # path('meishi_detail/<int:id>',views.meishi_detail,name = "meishi_detail"),
     path('meishi_detail/(?p <id>)',views.meishi_detail,name = "meishi_detail"),
+    path('news_detail/<int:id>',views.news_detail,name="news_detail"),
 
 ]
 

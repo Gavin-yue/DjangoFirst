@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'project1.apps.Project1Config',
+    'ckeditor_uploader',
+    'ckeditor',
     'meishi.apps.MeishiConfig',
 ]
 
@@ -126,3 +128,8 @@ STATICFILES_DIRS=[
 
 MEDIA_ROOT=os.path.join(BASE_DIR,"static")
 # MEDIA_URL = '/media/'
+
+CKEDITOR_UPLOAD_PATH = '/media/'
+
+
+page_size = 1
